@@ -8,5 +8,3 @@ class NewsRepository extends INewsRepository {
     throw UnimplementedError();
   }
 }
-🔽
-▶️
