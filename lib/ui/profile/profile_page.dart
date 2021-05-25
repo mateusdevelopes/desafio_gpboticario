@@ -3,6 +3,7 @@ import 'package:desafio_gpboticario/shared/design/design_assets.dart';
 import 'package:desafio_gpboticario/shared/design/design_colors.dart';
 import 'package:desafio_gpboticario/ui/profile/profile_controller.dart';
 import 'package:desafio_gpboticario/ui/widgets/app_bar_widget.dart';
+import 'package:desafio_gpboticario/ui/widgets/saction_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,6 +58,10 @@ class ProfilePage extends GetView<ProfileController> {
                     color: DesignColors.COLOR_ORANGE,
                   ),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: SectionButtonWidget(),
               ),
             ],
           ),
