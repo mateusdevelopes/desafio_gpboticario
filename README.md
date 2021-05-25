@@ -6,11 +6,18 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+For defaul user are will returned when logIn is:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+  {
+    "id": 1,
+    "createdAt": "2021-05-21T16:08:04.043Z",
+    "user": "Mateus Lopes",
+    "email": "mateusnlps@hotmail.com",
+    "avatar": "https://cdn.fakercloud.com/avatars/akmalfikri_128.jpg",
+    "supposedlyEncryptedPassword": "y8ezlxs8PpdQxV33",
+    "fakeToken": "92232475-33c6-45c3-8c0c-c79dc48be296"
+  }
+  
+## Mock
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The aplication consume mockAPI: https://mockapi.io.
