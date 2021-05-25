@@ -4,6 +4,8 @@ abstract class IPostRepository {
   Future<List<PostModel>> fetchPaginatedPosts(
       int page, int limit, String orderBy, String order);
 
+  Future<List<PostModel>> fetchAllPosts(String orderBy, String order);
+
   Future createPost(String createdAt, String userId, String description,
       String name, String avatar);
 

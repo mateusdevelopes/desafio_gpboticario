@@ -33,8 +33,10 @@ class MakePostController extends GetxController {
   createNewPost(String id) async {
     if (description.text.isEmpty) {
       makeNewPost();
-    } else {
+    } else if (description.text == arguments) {
       editExistentPost(id, description.text);
+    } else {
+      makeNewPost();
     }
   }
 

@@ -35,6 +35,31 @@ class PostRepository extends IPostRepository {
   }
 
   @override
+  Future<List<PostModel>> fetchAllPosts(
+    String orderBy, String order) async {
+    var queryParams = {
+      "orderBy": orderBy,
+      "order": order
+    };
+    try {
+      final response = await _dio.get('/posts', queryParameters: queryParams);
+      return response.data
+              .map<PostModel>((e) => PostModel.fromJson(e))
+              .toList() ??
+          [];
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 500) {
+        print('Houve um problema no servidor!');
+        throw RestException(
+            message: 'Houve um problema no servidor!',
+            statusCode: e.response?.statusCode ?? 0);
+      }
+      throw RestException(
+          message: e.error, statusCode: e.response?.statusCode ?? 0);
+    }
+  }
+
+  @override
   Future createPost(String createdAt, String userId, String description,
       String name, String avatar) async {
     var body = {
