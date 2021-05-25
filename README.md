@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-For defaul user are will returned when logIn is:
+The aplication has register and login page. But for default user are will returned when logIn is:
 
   {
     "id": 1,
@@ -17,6 +17,8 @@ For defaul user are will returned when logIn is:
     "supposedlyEncryptedPassword": "y8ezlxs8PpdQxV33",
     "fakeToken": "92232475-33c6-45c3-8c0c-c79dc48be296"
   }
+  
+It's because i used simple mockAPI.
   
 ## Mock
 
