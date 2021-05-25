@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DesignColors {
@@ -20,6 +19,10 @@ class DesignColors {
   // ignore: non_constant_identifier_names
   static MaterialColor COR_CINZA_TEMA = MaterialColor(0xff888888, color);
 
-  static const Color COR_BACKGROUND = Color(0xffEBE9FE);
+  static const Color COLOR_BACKGROUND = Colors.white;
+  static const Color COLOR_LIGHT_GREY = Color(0xffDADADA);
+  static const Color COLOR_ORANGE = Color(0xffFF5630);
+  static const Color COLOR_BLUE = Color(0xff3C9CD7);
+  static const Color COLOR_DARK_BLACK = Color(0xff2E2E2E);
   static const Color COR_GREEN = Color(0xff17a689);
 }

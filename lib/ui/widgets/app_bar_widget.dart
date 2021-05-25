@@ -14,9 +14,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   AppBarWidget(
       {Key key,
-      this.backgroundColor = DesignColors.COR_GREEN,
+      this.backgroundColor = DesignColors.COLOR_BACKGROUND,
       this.title = "",
-      this.titleColor = Colors.white,
+      this.titleColor = DesignColors.COLOR_DARK_BLACK,
       this.onPressed,
       this.leading,
       this.actions})
@@ -29,12 +29,18 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: backgroundColor,
       leading: leading,
-      centerTitle: false,
+      centerTitle: true,
+      iconTheme: IconThemeData(
+        color: DesignColors.COLOR_DARK_BLACK,
+      ),
       title: Text(
         title,
         maxLines: 2,
         style: TextStyle(
-            color: titleColor, fontSize: 26, fontWeight: FontWeight.w900),
+          color: titleColor,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
       ),
       actions: actions,
     );

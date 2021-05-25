@@ -4,7 +4,7 @@ class PostModel {
   String name;
   String avatar;
   String description;
-  int userId;
+  String userId;
 
   PostModel(
       {this.id,

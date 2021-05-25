@@ -35,18 +35,18 @@ class PostRepository extends IPostRepository {
   }
 
   @override
-  Future<PostModel> createPost(
-      int userId, String description, String name, String avatar) async {
+  Future createPost(String createdAt, String userId, String description,
+      String name, String avatar) async {
     var body = {
-      "createdAt": DateTime.now(),
+      "userId": userId,
+      "createdAt": createdAt,
       "name": name,
       "avatar": avatar,
       "description": description,
-      "userId": userId,
     };
     try {
       final response = await _dio.post('/posts', data: body);
-      return PostModel.fromJson(response.data);
+      print(response.statusCode);
     } on DioError catch (e) {
       if (e.response?.statusCode == 404) {
         print('Registro não encontrado!');
@@ -66,10 +66,8 @@ class PostRepository extends IPostRepository {
 
   @override
   Future<PostModel> deletePost(String id) async {
-    var queryParams = {"id": id};
     try {
-      final response =
-          await _dio.delete('/posts', queryParameters: queryParams);
+      final response = await _dio.delete('/posts/$id');
       return PostModel.fromJson(response.data);
     } on DioError catch (e) {
       if (e.response?.statusCode == 404) {
@@ -89,18 +87,10 @@ class PostRepository extends IPostRepository {
   }
 
   @override
-  Future<PostModel> editPost(
-      String id, String description, PostModel postModel) async {
-    var queryParams = {"id": id};
-    var body = {
-      "createdAt": DateTime.now(),
-      "name": postModel.name,
-      "avatar": postModel.avatar,
-      "description": description
-    };
+  Future<PostModel> editPost(String id, String description) async {
+    var body = {"description": description};
     try {
-      final response =
-          await _dio.put('/posts', queryParameters: queryParams, data: body);
+      final response = await _dio.put('/posts/$id', data: body);
       return PostModel.fromJson(response.data);
     } on DioError catch (e) {
       if (e.response?.statusCode == 404) {

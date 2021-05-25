@@ -1,8 +1,10 @@
 class AppRouters {
-  static const ROOT = '/';
-  static const SPLASH = '/splash';
-  static const LOGIN = '/login';
-  static const REGISTER = '/register';
-  static const NEWS = '/news';
-  static const FEED = '/feed';
+  static const String ROOT = '/';
+  static const String DASH = '/dash';
+  static const String SPLASH = '/splash';
+  static const String LOGIN = '/login';
+  static const String REGISTER = '/register';
+  static const String NEWS = '/news';
+  static const String FEED = '/feed';
+  static const String MAKE_POST = '/makePost';
 }

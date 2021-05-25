@@ -4,6 +4,6 @@ import 'package:get/get.dart';
 class NewsBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put(NewsController());
+    Get.lazyPut<NewsController>(() => NewsController());
   }
 }

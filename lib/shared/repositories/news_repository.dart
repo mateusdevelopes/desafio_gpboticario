@@ -1,4 +1,5 @@
 import 'package:desafio_gpboticario/shared/interfaces/i_news_repository.dart';
+import 'package:desafio_gpboticario/shared/models/banner_model.dart';
 import 'package:desafio_gpboticario/shared/models/news_model.dart';
 import 'package:desafio_gpboticario/shared/services/rest_client.dart';
 import 'package:desafio_gpboticario/shared/services/rest_exception.dart';
@@ -16,6 +17,26 @@ class NewsRepository extends INewsRepository {
       final response = await _dio.get('$NEWS_URL');
       return response.data['news']
               .map<NewsModel>((e) => NewsModel.fromJson(e))
+              .toList() ??
+          [];
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 500) {
+        print('Houve um problema no servidor!');
+        throw RestException(
+            message: 'Houve um problema no servidor!',
+            statusCode: e.response?.statusCode ?? 0);
+      }
+      throw RestException(
+          message: e.error, statusCode: e.response?.statusCode ?? 0);
+    }
+  }
+
+  @override
+  Future<List<BannerModel>> fetchBanners() async {
+    try {
+      final response = await _dio.get('/banners');
+      return response.data
+              .map<BannerModel>((e) => BannerModel.fromJson(e))
               .toList() ??
           [];
     } on DioError catch (e) {
